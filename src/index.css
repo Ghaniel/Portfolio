@@ -1,0 +1,151 @@
+/* ── Global Reset & Variables ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --navy:      #0B1426;
+  --navy-2:    #111D35;
+  --navy-3:    #162040;
+  --blue:      #1E40AF;
+  --blue-lt:   #3B82F6;
+  --accent:    #F59E0B;
+  --accent-2:  #FBBF24;
+  --white:     #FFFFFF;
+  --off:       #F8F7F4;
+  --gray-1:    #F1F0EC;
+  --gray-2:    #D1D0CC;
+  --gray-3:    #9CA3AF;
+  --gray-4:    #4B5563;
+  --text:      #111827;
+  --text-2:    #374151;
+  --text-3:    #6B7280;
+
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --radius-xl: 40px;
+  --nav-h:     70px;
+  --ease:      cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--off);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-1); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 99px; }
+
+/* ── Utility ── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.section-sub {
+  color: var(--text-3);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 48px;
+  max-width: 500px;
+  font-weight: 300;
+}
+
+/* ── Buttons ── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--navy);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s var(--ease), transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+  letter-spacing: 0.01em;
+}
+.btn-primary:hover {
+  background: var(--accent-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(245,158,11,0.38);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.95rem;
+  padding: 13px 28px;
+  border-radius: var(--radius-xl);
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.btn-outline:hover {
+  border-color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.07);
+}
+
+/* ── Fade-in animation ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes skillGrow {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@keyframes ringRotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}

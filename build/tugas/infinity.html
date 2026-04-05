@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Geometri Tak Hingga</title>
+    <link rel="stylesheet" href="infinity.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Beranda</a></li>
+            <li><a href="mtk.html">Menu</a></li>
+        </ul>
+    </nav>
+    <br><br><br>
+    
+    <div class="calculator">
+        <h2>Kalkulator Geometri Tak Hingga</h2>
+        <label for="a">Suku Pertama (a):</label>
+        <input type="number" id="a" placeholder="Masukkan a">
+        
+        <label for="r">Rasio (r):</label>
+        <input type="number" id="r" placeholder="Masukkan r">
+        
+        <button onclick="hitungTakHingga()">Hitung</button>
+        
+        <h3>Hasil:</h3>
+        <p id="hasil"></p>
+    </div>
+
+    <script>
+        function hitungTakHingga() {
+            let a = parseFloat(document.getElementById('a').value);
+            let r = parseFloat(document.getElementById('r').value);
+            
+            if (Math.abs(r) >= 1) {
+                document.getElementById('hasil').innerText = "Rasio harus kurang dari 1 untuk konvergen.";
+                return;
+            }
+            
+            let hasil = a / (1 - r);
+            document.getElementById('hasil').innerText = "Jumlah tak hingga: " + hasil.toFixed(4);
+        }
+    </script>
+</body>
+
+</html>
